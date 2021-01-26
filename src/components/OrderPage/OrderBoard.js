@@ -79,26 +79,21 @@ export default function OrderBoard(props) {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-
                                 <Button
                                     type='submit'
                                     color='secondary'
                                     onClick={(_, value) => onChange(value)}
                                     value="Hot Americano"
-                                    // color={hi.color}
-                                    // onClick={create}>
-                                    // {hi.label}
+
                                 >
                                     Hot
 
                                 </Button>
-
                                 <Button
                                     type='submit'
                                     color='primary'
-                                    // color={hi.color}
-                                    // onClick={create}>
-                                    // {hi.label}
+                                    onClick={(_, value) => onChange(value)}
+
                                 >
                                     Ice
 
@@ -133,6 +128,8 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='secondary'
+                                    onClick={(_, value) => onChange(value)}
+
                                 >
                                     Hot
 
@@ -141,6 +138,8 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='primary'
+                                    onClick={(_, value) => onChange(value)}
+
                                 >
                                     Ice
 
@@ -175,6 +174,8 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='secondary'
+                                    onClick={(_, value) => onChange(value)}
+
                                 >
                                     Hot
 
@@ -183,6 +184,8 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='primary'
+                                    onClick={(_, value) => onChange(value)}
+
                                 >
                                     Ice
 
@@ -215,9 +218,8 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='secondary'
-                                    // color={hi.color}
-                                    // onClick={create}>
-                                    // {hi.label}
+                                    onChange={(_, value) => onChange(value)}
+
                                 >
                                     Hot
 
@@ -226,9 +228,8 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='primary'
-                                    // color={hi.color}
-                                    // onClick={create}>
-                                    // {hi.label}
+                                    onClick={(_, value) => onChange(value)}
+
                                 >
                                     Ice
 

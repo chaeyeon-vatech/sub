@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     logocontainer: {
         marginLeft: 32,
         marginRight: 32,
-        marginBottom:30
+        marginBottom: 30
     },
     logotitle: {
         color: "white",
@@ -57,8 +57,14 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+const HandleClick = () => {
+    alert("로그아웃되었습니다!")
+    localStorage.removeItem('currentUser')
+}
+
 const NavBar = props => {
     const {children, tabIndex, onChange} = props;
+
 
     const classes = useStyles();
 
@@ -108,7 +114,9 @@ const NavBar = props => {
                             selected: classes.activeContainer,
                             title: classes.title
                         }}
-                             label="로그아웃"/>
+                             label="로그아웃"
+                             onClick={HandleClick}
+                        />
 
                     </Tabs>
                 </AppBar>

@@ -1,1 +1,1 @@
-import "./addons/SessionData"
+import "./addons/LocalStorage"

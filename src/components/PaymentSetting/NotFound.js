@@ -1,8 +1,5 @@
 import {Button, makeStyles} from "@material-ui/core";
-import React from "react";
-import {useMutation, useQuery} from "@apollo/react-hooks";
-import {TaskQuery} from "../../../graphql/query";
-import PropTypes from "prop-types";
+import React, {useState} from "react";
 
 const useStyles = makeStyles(theme => ({
     focused: {
@@ -114,9 +111,15 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+const handleClick = (user) => {
+    alert("로그인되었습니다!")
+    localStorage.setItem('currentUser', user)
+}
+
 const NotFound = props => {
 
     const classes = useStyles();
+    const [user, setUser] = useState();
 
 
     return (
@@ -128,8 +131,11 @@ const NotFound = props => {
                     <h5 className={classes.h5}>재입력해주시거나 <br/> 유저 추가를 문의해주세요!</h5>
                     <div className={classes.loginform}>
                         <div className={classes.group}>
-                            <input className={classes.focused}/>
-                            <Button type="submit">Login</Button>
+                            <input className={classes.focused}
+                                   onChange={(e) => setUser(e.target.value)}
+                            />
+                            <Button type="submit"
+                                    onClick={() => handleClick(user)}>Login</Button>
                         </div>
                     </div>
                 </div>
@@ -138,9 +144,5 @@ const NotFound = props => {
 
     );
 };
-
-// NotFound.protoTypes = {
-//     task: PropTypes.array
-// }
 
 export default NotFound;

@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
         height: 200
     },
     title: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: "bold",
     },
     text__field: {margin: 20},

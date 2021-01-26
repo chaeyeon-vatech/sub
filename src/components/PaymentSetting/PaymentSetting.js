@@ -1,5 +1,5 @@
-import {Button, makeStyles} from "@material-ui/core";
-import React from "react";
+import {Button, makeStyles, PropTypes} from "@material-ui/core";
+import React, {useState} from "react";
 import gql from "graphql-tag";
 
 
@@ -125,10 +125,16 @@ export const TaskQuery = gql`
 
 `
 
+const handleClick = (user) => {
+    alert("로그인되었습니다!")
+    localStorage.setItem('currentUser', user)
+}
+
 const PaymentSetting = props => {
 
-    const classes = useStyles();
 
+    const classes = useStyles();
+    const [user, setUser] = useState();
 
     return (
 
@@ -139,8 +145,9 @@ const PaymentSetting = props => {
                     <h5 className={classes.h5}>주문을 생성하시려면<br/>이름을 입력해주세요!</h5>
                     <div className={classes.loginform}>
                         <div className={classes.group}>
-                            <input className={classes.focused}/>
-                            <Button type="submit">Login</Button>
+                            <input className={classes.focused} onChange={(e) => setUser(e.target.value)}/>
+                            <Button type="submit" onClick={() => handleClick(user)}
+                            >Login</Button>
                         </div>
                     </div>
                 </div>

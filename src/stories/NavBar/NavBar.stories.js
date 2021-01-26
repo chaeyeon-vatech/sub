@@ -4,7 +4,7 @@ import { NavBar } from "../../components";
 
 export default {
   component: NavBar,
-  title: "NavBar",
+  title: "Menu",
   excludeStories: /.*Data$/,
 };
 

@@ -9,6 +9,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import {useTheme} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import * as PropTypes from "prop-types";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,12 +22,13 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
-    card: {maxWidth: 345},
+    card: {maxWidth: 300},
     color: {
         brown: "#6d4c41"
     },
     containerMobile: {
-        padding: '24px 32px 12px 32px !important'
+        padding: '24px 32px 12px 32px !important',
+        cursor: "default"
     },
     itemContainerMobile: {
         marginLeft: -30,
@@ -33,13 +36,18 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: 30,
         paddingRight: 30
     },
-    media:{
-        cursor:"default"
+    media: {
+        cursor: "default"
+    },
+    button: {
+        marginLeft: "40px",
+        fontSize: "20px"
     }
 }));
 
-export default function CorderBoard() {
+export default function OrderBoard(props) {
 
+    const {onChange} = props;
     const theme = useTheme();
     const classes = useStyles({theme});
 
@@ -72,8 +80,29 @@ export default function CorderBoard() {
                             </CardActionArea>
                             <CardActions>
 
-                                {/*<CreateOrder hi="hot" menu="아메리카노" color="secondary" label="Hot"/>*/}
-                                {/*<CreateOrder hi="ice" menu="아메리카노" color="primary" label="Ice"/>*/}
+                                <Button
+                                    type='submit'
+                                    color='secondary'
+                                    onClick={(_, value) => onChange(value)}
+                                    value="Hot Americano"
+                                    // color={hi.color}
+                                    // onClick={create}>
+                                    // {hi.label}
+                                >
+                                    Hot
+
+                                </Button>
+
+                                <Button
+                                    type='submit'
+                                    color='primary'
+                                    // color={hi.color}
+                                    // onClick={create}>
+                                    // {hi.label}
+                                >
+                                    Ice
+
+                                </Button>
                             </CardActions>
                         </Card>
                     </Paper>
@@ -101,8 +130,21 @@ export default function CorderBoard() {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                {/*<CreateOrder hi="hot" menu="카페라떼" color="secondary" label="Hot"/>*/}
-                                {/*<CreateOrder hi="ice" menu="카페라떼" color="primary" label="Ice"/>*/}
+                                <Button
+                                    type='submit'
+                                    color='secondary'
+                                >
+                                    Hot
+
+                                </Button>
+
+                                <Button
+                                    type='submit'
+                                    color='primary'
+                                >
+                                    Ice
+
+                                </Button>
                             </CardActions>
                         </Card>
                     </Paper>
@@ -130,8 +172,21 @@ export default function CorderBoard() {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                {/*<CreateOrder hi="hot" menu="바닐라라떼" color="secondary" label="Hot"/>*/}
-                                {/*<CreateOrder hi="ice" menu="바닐라라떼" color="primary" label="Ice"/>*/}
+                                <Button
+                                    type='submit'
+                                    color='secondary'
+                                >
+                                    Hot
+
+                                </Button>
+
+                                <Button
+                                    type='submit'
+                                    color='primary'
+                                >
+                                    Ice
+
+                                </Button>
                             </CardActions>
                         </Card>
                     </Paper>
@@ -157,20 +212,39 @@ export default function CorderBoard() {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                {/*<CreateOrder hi="hot" menu="카페모카" color="secondary" label="Hot"/>*/}
-                                {/*<CreateOrder hi="ice" menu="카페모카" color="primary" label="Ice"/>*/}
+                                <Button
+                                    type='submit'
+                                    color='secondary'
+                                    // color={hi.color}
+                                    // onClick={create}>
+                                    // {hi.label}
+                                >
+                                    Hot
+
+                                </Button>
+
+                                <Button
+                                    type='submit'
+                                    color='primary'
+                                    // color={hi.color}
+                                    // onClick={create}>
+                                    // {hi.label}
+                                >
+                                    Ice
+
+                                </Button>
                             </CardActions>
                         </Card>
                     </Paper>
 
                 </Grid>
 
-                {/*{status === "대기중" && (*/}
-                {/*    <GiveupButton userid={localStorage.getItem("myData")}/>*/}
-                {/*)}*/}
-
             </Grid>
         </div>
 
     );
+}
+
+OrderBoard.propTypes = {
+    onChange: PropTypes.func
 }

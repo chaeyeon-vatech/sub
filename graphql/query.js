@@ -12,11 +12,12 @@ export const UserSearchQuery = gql`
 
 //내 목록 불러오기
 export const MeQuery = gql`
-    query me($userid:ID!) {
+    query me($userid:String!) {
         me(userid:$userid){
             username
             position
             status
+            _id
         }
     }
 
@@ -143,7 +144,7 @@ export const Ordermen = gql`
 
 
 export const OrderSearch = gql`
-    query orderMine($id:ID!){
+    query orderMine($id:String!){
         orderMine(_id:$id){
             _id
             username

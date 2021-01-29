@@ -14,9 +14,6 @@ import * as PropTypes from "prop-types";
 
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
     paper: {
         padding: theme.spacing(5),
         textAlign: 'center',
@@ -56,11 +53,10 @@ export default function OrderBoard(props) {
 
         <div className={classes.root}>
 
-            <Grid container spacing={3} flexGrow={1} horizontal='center'
+            <Grid container spacing={3} horizontal='center'
                   breakpoints={{300: classes.itemContainerMobile}}>
 
-                <Grid item xs={3} flexGrow={3}
-                      flexBasis='350px'>
+                <Grid item xs={3}>
 
                     <Paper className={classes.paper}>
                         <Card className={classes.card}>
@@ -82,9 +78,7 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='secondary'
-                                    onClick={(_, value) => onChange(value)}
-                                    value="Hot Americano"
-
+                                    onClick={(_) => onChange("Hot 아메리카노")}
                                 >
                                     Hot
 
@@ -92,8 +86,7 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='primary'
-                                    onClick={(_, value) => onChange(value)}
-
+                                    onClick={(_) => onChange("Ice 아메리카노")}
                                 >
                                     Ice
 
@@ -102,8 +95,7 @@ export default function OrderBoard(props) {
                         </Card>
                     </Paper>
                 </Grid>
-                <Grid item xs={3} flexGrow={3}
-                      flexBasis='350px'>
+                <Grid item xs={3}>
 
                     <Paper className={classes.paper}>
                         <Card className={classes.card}>
@@ -119,17 +111,13 @@ export default function OrderBoard(props) {
                                     <Typography gutterBottom variant="h5" component="h2">
                                         카페라떼
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-
-                                    </Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
                                 <Button
                                     type='submit'
                                     color='secondary'
-                                    onClick={(_, value) => onChange(value)}
-
+                                    onClick={(_) => onChange("Hot 카페라떼")}
                                 >
                                     Hot
 
@@ -138,8 +126,7 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='primary'
-                                    onClick={(_, value) => onChange(value)}
-
+                                    onClick={(_) => onChange("Ice 카페라떼")}
                                 >
                                     Ice
 
@@ -148,8 +135,7 @@ export default function OrderBoard(props) {
                         </Card>
                     </Paper>
                 </Grid>
-                <Grid item xs={3} flexGrow={3}
-                      flexBasis='350px'>
+                <Grid item xs={3}>
                     <Paper className={classes.paper}>
                         <Card className={classes.card}>
                             <CardActionArea>
@@ -165,17 +151,13 @@ export default function OrderBoard(props) {
                                     <Typography gutterBottom variant="h5" component="h2">
                                         바닐라라떼
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-
-                                    </Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
                                 <Button
                                     type='submit'
                                     color='secondary'
-                                    onClick={(_, value) => onChange(value)}
-
+                                    onClick={(_) => onChange("Hot 바닐라라떼")}
                                 >
                                     Hot
 
@@ -184,8 +166,7 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='primary'
-                                    onClick={(_, value) => onChange(value)}
-
+                                    onClick={(_) => onChange("Ice 바닐라라떼")}
                                 >
                                     Ice
 
@@ -218,8 +199,7 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='secondary'
-                                    onChange={(_, value) => onChange(value)}
-
+                                    onClick={(_) => onChange("Hot 카페모카")}
                                 >
                                     Hot
 
@@ -228,8 +208,7 @@ export default function OrderBoard(props) {
                                 <Button
                                     type='submit'
                                     color='primary'
-                                    onClick={(_, value) => onChange(value)}
-
+                                    onClick={(_) => onChange("Ice 카페모카")}
                                 >
                                     Ice
 

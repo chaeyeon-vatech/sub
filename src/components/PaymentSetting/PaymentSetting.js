@@ -1,6 +1,8 @@
 import {Button, makeStyles, PropTypes} from "@material-ui/core";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import gql from "graphql-tag";
+import {SearchQuery} from "../../../../client/src/graphql/query";
+import {useQuery} from "@apollo/react-hooks";
 
 
 const useStyles = makeStyles(theme => ({

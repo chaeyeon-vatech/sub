@@ -28,7 +28,7 @@ const MainRoute = () => {
 
     const onTabChanged = (newValue) => {
         if (newValue === 4) {
-            sessionStorage.removeItem('currentUser');
+            localStorage.removeItem('currentUser');
             setIsSignedIn(false);
         }
         history.push(linkPaths[newValue])

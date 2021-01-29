@@ -1,1 +1,1 @@
-export {default} from "./OrderBoard";
+export {default} from "./OrderBoardComponent.js";

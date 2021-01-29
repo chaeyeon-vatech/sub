@@ -15,7 +15,7 @@ import {useQuery} from "@apollo/react-hooks";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        margin: 'auto',
+        margin: 'auto'
     },
     cardHeader: {
         padding: theme.spacing(1, 2),

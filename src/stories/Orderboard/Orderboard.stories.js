@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions";
+import {action} from "@storybook/addon-actions";
 import React from "react";
 import {OrderBoard} from "../../components";
 
@@ -9,12 +9,12 @@ export default {
     excludeStories: /.*Data$/,
 };
 
-export const Default = () => {
+export const orderboard = () => {
 
     const onChange = (value) => {
 
         action("주문이 완료되었습니다!")(value);
     }
 
-    return <OrderBoard onChange={(value)=>onChange(value)}/>
+    return <OrderBoard onChange={(value) => onChange(value)}/>
 }

@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import OrderBoardComponent from "./OrderBoardComponent";
 import {Container} from "@material-ui/core";
+import OrderBoard from "./OrderBoard";
 
 
 function TabPanel(props) {
@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuBoard() {
+
     const classes = useStyles();
     const [value, setValue] = React.useState('one');
 
@@ -85,14 +86,15 @@ export default function MenuBoard() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index="one">
-                <OrderBoardComponent/>
+                <OrderBoard/>
             </TabPanel>
             <TabPanel value={value} index="two">
-                <OrderBoardComponent/>
+                <OrderBoard/>
             </TabPanel>
             <TabPanel value={value} index="three">
-                <OrderBoardComponent/>
+                <OrderBoard/>
             </TabPanel>
         </>
     )
 }
+

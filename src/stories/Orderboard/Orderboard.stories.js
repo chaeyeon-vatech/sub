@@ -4,7 +4,7 @@ import {OrderBoard} from "../../components";
 
 
 export default {
-    component: OrderBoard,
+    component: {OrderBoard},
     title: "Board",
     excludeStories: /.*Data$/,
 };
@@ -18,3 +18,4 @@ export const orderboard = () => {
 
     return <OrderBoard onChange={(value) => onChange(value)}/>
 }
+

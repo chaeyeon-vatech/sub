@@ -14,6 +14,7 @@ import UserDeleteButton from "./UserDeleteButton";
 import UserAddButton from "./UserAddButton";
 import Button from "@material-ui/core/Button";
 import {MultipleUserDelete} from "../../../../graphql/useMutation";
+import {Row} from "simple-flexbox";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +37,27 @@ const useStyles = makeStyles((theme) => ({
     addbutton: {
         justify: "flex-end",
         float: "right"
-    }
+    },
+    input: {
+        color: theme.color.black,
+        display: "block",
+        width: "200%",
+        padding: "10px 0 10px 50px",
+        fontSize: '15px !important',
+        fontFamily: "Open Sans",
+        fontWeight: "600",
+        border: "0",
+        borderRadius: "3px",
+        outline: 0,
+        textIndent: "70px",
+        transition: "all .3s ease-in-out",
+        margin: "0px auto",
+        alignItems: "center",
+        justifyContent: "center",
+        LeftMargin: "30px",
+        alignSelf: "center",
+        MarginBottom: "50px"
+    },
 }));
 
 
@@ -127,7 +148,8 @@ export default function UserEditTable() {
     return (
         <Grid container spacing={2} justify="center" alignItems="center" className={classes.root}>
 
-                    <span className={classes.addbutton}>
+
+            <span className={classes.addbutton}>
                         <UserAddButton/>
                     </span>
             <span>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
@@ -10,19 +10,21 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
-import {Ordermen, VacationQuery} from "../../../../client/src/graphql/query";
 import {useQuery} from "@apollo/react-hooks";
+import {Ordermen, VacationQuery} from "../../../graphql/query";
+import {OrderBack, VacationBack} from "../../../graphql/useMutation";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        margin: 'auto'
+        margin: 'auto',
     },
     cardHeader: {
         padding: theme.spacing(1, 2),
     },
     list: {
-        width: 200,
-        height: 230,
+        width: 400,
+        height: 300,
         backgroundColor: theme.palette.background.paper,
         overflow: 'auto',
     },
@@ -45,9 +47,9 @@ function union(a, b) {
 
 export default function TransferList() {
     const classes = useStyles();
-    const [checked, setChecked] = React.useState([]);
-    const [left, setLeft] = React.useState([0, 1, 2, 3]);
-    const [right, setRight] = React.useState([4, 5, 6, 7]);
+    const [checked, setChecked] = useState([]);
+    const [left, setLeft] = useState([1, 2, 3]);
+    const [right, setRight] = useState([4, 5, 6, 7]);
 
     const {data: user} = useQuery(VacationQuery);
     const {data: order} = useQuery(Ordermen);
@@ -60,7 +62,6 @@ export default function TransferList() {
             setLeft(order.includedOrdermen);
         }
     }, [user, order]);
-
 
     const leftChecked = intersection(checked, left);
     const rightChecked = intersection(checked, right);
@@ -88,18 +89,6 @@ export default function TransferList() {
         }
     };
 
-    const handleCheckedRight = () => {
-        setRight(right.concat(leftChecked));
-        setLeft(not(left, leftChecked));
-        setChecked(not(checked, leftChecked));
-    };
-
-    const handleCheckedLeft = () => {
-        setLeft(left.concat(rightChecked));
-        setRight(not(right, rightChecked));
-        setChecked(not(checked, rightChecked));
-    };
-
     const customList = (title, items) => (
         <Card>
             <CardHeader
@@ -110,19 +99,19 @@ export default function TransferList() {
                         checked={numberOfChecked(items) === items.length && items.length !== 0}
                         indeterminate={numberOfChecked(items) !== items.length && numberOfChecked(items) !== 0}
                         disabled={items.length === 0}
-                        inputProps={{'aria-label': 'all items selected'}}
+                        inputProps={{'aria-label': '전체 인원 이동'}}
                     />
                 }
                 title={title}
-                subheader={`${numberOfChecked(items)}/${items.length} selected`}
+                subheader={`${numberOfChecked(items)}/${items.length} 명`}
             />
             <Divider/>
             <List className={classes.list} dense component="div" role="list">
-                {items.map((value) => {
+                {items.map((value, index) => {
                     const labelId = `transfer-list-all-item-${value}-label`;
 
                     return (
-                        <ListItem key={value} role="listitem" button onClick={handleToggle(value)}>
+                        <ListItem key={index} role="listitem" button onClick={handleToggle(value)}>
                             <ListItemIcon>
                                 <Checkbox
                                     checked={checked.indexOf(value) !== -1}
@@ -131,7 +120,9 @@ export default function TransferList() {
                                     inputProps={{'aria-labelledby': labelId}}
                                 />
                             </ListItemIcon>
+
                             <ListItemText id={labelId} primary={value.username}/>
+
                         </ListItem>
                     );
                 })}
@@ -140,34 +131,38 @@ export default function TransferList() {
         </Card>
     );
 
+
     return (
         <Grid container spacing={2} justify="center" alignItems="center" className={classes.root}>
-            <Grid item>{customList('Choices', left)}</Grid>
+            <Grid item>{customList('커피 주문자', left)}</Grid>
             <Grid item>
                 <Grid container direction="column" alignItems="center">
                     <Button
                         variant="outlined"
                         size="small"
                         className={classes.button}
-                        onClick={handleCheckedRight}
+                        onClick={VacationBack(checked)}
                         disabled={leftChecked.length === 0}
                         aria-label="move selected right"
                     >
                         &gt;
                     </Button>
+
                     <Button
                         variant="outlined"
                         size="small"
                         className={classes.button}
-                        onClick={handleCheckedLeft}
+                        onClick={OrderBack(checked)}
                         disabled={rightChecked.length === 0}
-                        aria-label="move selected left"
                     >
                         &lt;
                     </Button>
                 </Grid>
             </Grid>
-            <Grid item>{customList('Chosen', right)}</Grid>
+            <Grid item>{customList('휴가자/결근자/기타사유', right)}</Grid>
+
         </Grid>
+
+
     );
 }

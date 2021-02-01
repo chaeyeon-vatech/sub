@@ -3,7 +3,7 @@
 describe('The Main Page', function() {
   it('successfully loads & signs in', function() {
     
-    cy.visit('/main', {
+    cy.visit('/', {
       onBeforeLoad: (win) => {
         win.sessionStorage.setItem("currentUser", "test");
       }

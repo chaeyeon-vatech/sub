@@ -1,16 +1,8 @@
-import {Button, makeStyles, PropTypes} from "@material-ui/core";
-import React, {useEffect, useState} from "react";
+import {Button, makeStyles} from "@material-ui/core";
+import React, {useState} from "react";
 import gql from "graphql-tag";
-import {SearchQuery} from "../../../../client/src/graphql/query";
-import {useQuery} from "@apollo/react-hooks";
 
-
-const useStyles = makeStyles(theme => ({
-    focused: {
-        "& $notchedOutline": {
-            borderColor: "yellow"
-        }
-    },
+const useStyles = makeStyles({
     loginwrap: {
         color: "white",
         fontWeight: "lighter",
@@ -114,7 +106,7 @@ const useStyles = makeStyles(theme => ({
             },
         },
     }
-}));
+});
 
 export const TaskQuery = gql`
     query{
@@ -126,14 +118,14 @@ export const TaskQuery = gql`
     }
 
 
-`
+`;
 
 const handleClick = (user) => {
     alert("로그인되었습니다!")
     localStorage.setItem('currentUser', user)
 }
 
-const PaymentSetting = props => {
+const PaymentSetting = () => {
 
 
     const classes = useStyles();

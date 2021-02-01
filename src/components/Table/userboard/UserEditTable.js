@@ -14,8 +14,6 @@ import UserDeleteButton from "./UserDeleteButton";
 import UserAddButton from "./UserAddButton";
 import Button from "@material-ui/core/Button";
 import {MultipleUserDelete} from "../../../../graphql/useMutation";
-import {Row} from "simple-flexbox";
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         float: "right"
     },
     input: {
-        color: theme.color.black,
+        color: "rgb(0,0,0,0)",
         display: "block",
         width: "200%",
         padding: "10px 0 10px 50px",

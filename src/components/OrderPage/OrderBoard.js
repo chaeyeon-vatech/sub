@@ -8,7 +8,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
-import {useTheme} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import * as PropTypes from "prop-types";
 import {Column} from "simple-flexbox";
@@ -23,9 +22,6 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
     card: {maxWidth: 300},
-    color: {
-        brown: "#6d4c41"
-    },
     containerMobile: {
         padding: '24px 32px 12px 32px !important',
         cursor: "default"
@@ -53,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '15px !important',
         fontWeight: "600",
         textAlign: "center",
-        border: `5px solid ${theme.color.darkRed}`,
+        border: `5px solid rgb(0,0,0,0)`,
         borderRadius: 5,
-        color: theme.color.veryDarkGrayishBlue,
+        color: '#373a47',
         width: "100%",
         padding: "10px 10px 10px 10px",
         marginBottom: "20px"
@@ -64,9 +60,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function OrderBoard(props) {
 
+    const classes = useStyles();
     const {onChange} = props;
-    const theme = useTheme();
-    const classes = useStyles({theme});
     const [contents, setContents] = useState("");
 
     const {data} = useQuery(TaskQuery);

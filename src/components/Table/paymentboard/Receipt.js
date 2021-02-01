@@ -43,7 +43,7 @@ function BoardTable() {
 
         <>
 
-            {content && user &&
+            {content &&
             content.map((content, index) => (
                 content !== "" && <span key={index} className={classes.content}>
                         <Tooltip title={user} placement="top">

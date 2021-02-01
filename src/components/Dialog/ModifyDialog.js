@@ -7,14 +7,15 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         flex: 1,
         alignContent: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        width: "30%"
     },
     container: {
         display: "flex",
         flex: 1,
         flexDirection: "column",
-        width: 400,
-        height: 200
+        width: 350,
+        height: 50
     },
     title: {
         fontSize: 20,
@@ -43,6 +44,7 @@ const ModifyDialog = props => {
                 수정하실 주문 내용을 입력해주세요!
             </DialogTitle>
             <TextField
+                className={classes.container}
                 variant="outlined"
                 value={currentText}
                 onChange={(event) => {

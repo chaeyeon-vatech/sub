@@ -14,6 +14,7 @@ export const orderboard = () => {
     const onChange = (value) => {
 
         action("주문이 완료되었습니다!")(value);
+
     }
 
     return <OrderBoard onChange={(value) => onChange(value)}/>

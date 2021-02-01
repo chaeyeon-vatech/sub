@@ -9,7 +9,7 @@ describe('The Main Page', function() {
       }
     })
 
-    cy.url().should('include', '/main')
+    cy.url().should('include', '/')
 
     cy.get("#user_panel").within(() => {
       cy.get("#table_body").should("be.visible")

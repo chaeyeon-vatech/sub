@@ -1,8 +1,7 @@
-import {Button, makeStyles, Typography} from "@material-ui/core";
+import {Button, Typography} from "@material-ui/core";
 import {addons, types} from "@storybook/addons";
 import {AddonPanel} from "@storybook/components";
 import React, {Fragment, useState} from "react";
-
 
 const Content = () => {
     const [currentUser, setCurrentUser] = useState(localStorage.getItem("currentUser"));

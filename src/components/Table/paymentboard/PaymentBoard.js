@@ -8,24 +8,23 @@ import Button from "@material-ui/core/Button";
 import {CostQuery, CountQuery, MeQuery, NotQuery, SearchQuery} from "../../../../graphql/query";
 import {OrderConfirmMutation} from "../../../../graphql/mutation";
 import Receipt from "./Receipt";
-import {makeStyles} from "@material-ui/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = createUseStyles((theme) => ({
     container: {
         backgroundColor: '#FFFFFF',
-        border: `5px solid ${theme.color.darkRed}`,
+        border: `5px solid rgba(246,244,244,0.9)`,
         borderRadius: 5
     },
     tableSection: {
         padding: 24
     },
     separator: {
-        backgroundColor: theme.color.lightGrayishBlue2,
+        backgroundColor: 'rgba(246,244,244,0.9)',
         width: 1,
         minWidth: 1
     },
     statContainer: {
-        borderBottom: `1px solid ${theme.color.lightGrayishBlue2}`,
+        borderBottom: `1px solid ${'rgba(246,244,244,0.9)'}`,
         padding: '24px 32px 24px 32px',
         height: 'calc(114px - 48px)',
         '&:last-child': {
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     stats: {
-        borderTop: `1px solid ${theme.color.lightGrayishBlue2}`,
+        borderTop: `1px solid ${'rgba(53,37,37,0.9)'}`,
         width: '100%',
         marginTop: 10,
         marginBottom: 20
@@ -44,14 +43,13 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '22px',
         letterSpacing: '0.3px',
         textAlign: 'center',
-        color: theme.color.grayishBlue2,
+        color: 'rgba(5,5,5,0.9)',
         whiteSpace: 'nowrap',
         marginBottom: 6
     },
     statValue: {
-        ...theme.typography.title,
         textAlign: 'center',
-        color: theme.color.veryDarkGrayishBlue
+        color: 'rgba(21,20,20,0.9)'
     },
     button: {
         marginBottom: "20px"
@@ -60,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 function TodayTrendsComponent() {
-    const classes = useStyles();
+    const theme = useTheme();
+    const classes = useStyles({theme});
 
     const [money, setMoney] = useState("");
     const [order, setOrder] = useState("");

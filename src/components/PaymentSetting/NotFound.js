@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         position: "center",
         marginTop: "-50px",
         padding: "80px 70px 50px 70px",
-        backgroundColor: theme.color.red,
+        backgroundColor: "rgb(124,53,53)",
 
     },
 

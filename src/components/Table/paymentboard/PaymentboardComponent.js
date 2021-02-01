@@ -6,7 +6,7 @@ import {useQuery} from "@apollo/react-hooks";
 import {TaskQuery} from "../../../../graphql/query";
 
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles({
     cardsContainer: {
         marginRight: -30
     },
@@ -61,7 +61,7 @@ const useStyles = createUseStyles((theme) => ({
         color: 'rgb(60,74,91)',
         width: "50%"
     }
-}));
+});
 
 function PaymentboardComponent() {
     const classes = useStyles();

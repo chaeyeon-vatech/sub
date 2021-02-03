@@ -5,7 +5,7 @@ describe('The Signup Page', function () {
 
         cy.visit('/', {
             onBeforeLoad: (win) => {
-                win.sessionStorage.clear()
+                win.localStorage.clear()
             }
         });
 

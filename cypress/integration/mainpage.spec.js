@@ -5,7 +5,7 @@ describe('The Main Page', function() {
     
     cy.visit('/', {
       onBeforeLoad: (win) => {
-        win.sessionStorage.setItem("currentUser", "test");
+        win.localStorage.setItem("currentUser", "test");
       }
     })
 
